@@ -3,11 +3,15 @@ package com.myreport.api.domain.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Getter
+@Builder
 public class Report {
     @Id
     private UUID id;
