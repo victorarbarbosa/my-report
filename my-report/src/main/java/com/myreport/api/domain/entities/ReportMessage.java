@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -19,6 +20,7 @@ public class ReportMessage {
     private String message;
     private byte[] anexedImage;
     private UUID userId;
+    private Date createdDate;
     @ManyToOne
     private Report report;
 }

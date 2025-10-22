@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +22,7 @@ public class ReportDto {
     private byte[] image;
     private UUID companyId;
     private UUID userId;
+    private Date createdDate;
     private List<ReportMessageDto> messages;
 
     public ReportDto(Report report) {
@@ -32,6 +34,7 @@ public class ReportDto {
         image = report.getImage();
         companyId = report.getCompanyId();
         userId = report.getUserId();
+        createdDate = report.getCreatedDate();
 
         messages = report.getMessages().stream().map(ReportMessageDto::new).toList();
     }

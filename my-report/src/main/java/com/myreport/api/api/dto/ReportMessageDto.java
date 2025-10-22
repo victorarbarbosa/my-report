@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Getter
@@ -16,6 +17,7 @@ public class ReportMessageDto {
     private byte[] anexedImage;
     private UUID userId;
     private UUID reportId;
+    private Date createdDate;
 
     public ReportMessageDto(ReportMessage reportMessage) {
         id = reportMessage.getId();
@@ -23,5 +25,6 @@ public class ReportMessageDto {
         anexedImage = reportMessage.getAnexedImage();
         userId = reportMessage.getUserId();
         reportId = reportMessage.getReport().getId();
+        createdDate = reportMessage.getCreatedDate();
     }
 }
