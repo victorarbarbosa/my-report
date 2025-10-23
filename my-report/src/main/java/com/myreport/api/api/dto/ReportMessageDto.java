@@ -1,6 +1,7 @@
 package com.myreport.api.api.dto;
 
 import com.myreport.api.domain.entities.ReportMessage;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,8 +9,7 @@ import lombok.Setter;
 import java.util.Date;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class ReportMessageDto {
     private UUID id;

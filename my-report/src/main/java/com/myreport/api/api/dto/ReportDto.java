@@ -1,17 +1,14 @@
 package com.myreport.api.api.dto;
 
 import com.myreport.api.domain.entities.Report;
-import com.myreport.api.domain.entities.ReportMessage;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class ReportDto {
     private UUID id;

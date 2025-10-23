@@ -33,7 +33,7 @@ public class ReportController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<ReportDto>> searchReports(SearchReportsRequest searchRequest) {
+    public ResponseEntity<List<ReportDto>> searchReports(@RequestBody SearchReportsRequest searchRequest) {
         var result = service.searchReports(searchRequest.getSearchTerm()).stream().map(ReportDto::new).toList();
         return ResponseEntity.ok(result);
     }
@@ -44,5 +44,27 @@ public class ReportController {
         return ResponseEntity.created(URI.create("/api/report/id")).build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ReportDto> updateReport(
+            @PathVariable UUID id,
+            @RequestBody ReportDto reportDto) {
 
+        var updatedReport = service.updateReport(id, reportDto);
+        if(updatedReport == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(new ReportDto(updatedReport));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteReport(@PathVariable UUID id) {
+        var existingReport = service.getReportById(id);
+        if (existingReport == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        service.deleteReport(id);
+        return ResponseEntity.ok().build();
+    }
 }

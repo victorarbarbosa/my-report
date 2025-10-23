@@ -4,6 +4,7 @@ import com.myreport.api.api.dto.ReportDto;
 import com.myreport.api.domain.entities.Report;
 import com.myreport.api.infrastructure.repositories.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -45,5 +46,23 @@ public class ReportService {
         reportRepository.save(report);
 
         return report;
+    }
+
+    public Report updateReport(UUID reportId, ReportDto reportDto) {
+        var existingReport = getReportById(reportId);
+        if (existingReport == null)
+            return null;
+
+        existingReport.setTitle(reportDto.getTitle());
+        existingReport.setReportMessage(reportDto.getReportMessage());
+        existingReport.setImage(reportDto.getImage());
+        existingReport.setCompanyId(reportDto.getCompanyId());
+        existingReport.setUserId(reportDto.getUserId());
+
+        return reportRepository.save(existingReport);
+    }
+
+    public void deleteReport(UUID id) {
+        reportRepository.deleteById(id);
     }
 }

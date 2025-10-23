@@ -14,6 +14,6 @@ public interface ReportRepository extends JpaRepository<Report, UUID> {
 
     @Query("SELECT r FROM Report r " +
             "WHERE LOWER(r.title) LIKE LOWER(CONCAT('%', :termo, '%')) " +
-            "   OR LOWER(r.reportMessage) LIKE LOWER(CONCAT('%', :term, '%'))")
-    List<Report> searchReports(@Param("termo") String term);
+            "   OR LOWER(r.reportMessage) LIKE LOWER(CONCAT('%', :termo, '%'))")
+    List<Report> searchReports(@Param("termo") String termo);
 }
