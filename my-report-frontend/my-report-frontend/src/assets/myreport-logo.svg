@@ -1,0 +1,26 @@
+<!-- MyReport Logo Oficial (azul #007BFF, fundo transparente) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" width="300" height="200" role="img" aria-label="My Report logo">
+  <defs>
+    <style>
+      .icon, .check, .text {
+        fill: none;
+        stroke: #007BFF;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .check { stroke-width: 10; }
+      .icon  { stroke-width: 10; }
+      .text  { fill: #007BFF; stroke: none; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: -0.5px; }
+    </style>
+  </defs>
+
+  <!-- Escudo -->
+  <path class="icon" d="M65 20 L125 45 V90 C125 120 100 145 65 155 C30 145 5 120 5 90 V45 L65 20 Z" />
+
+  <!-- Check interno -->
+  <path class="check" d="M40 85 L60 105 L95 65" />
+
+  <!-- Texto -->
+  <text x="165" y="90" font-size="52" class="text">My</text>
+  <text x="165" y="145" font-size="70" class="text">Report</text>
+</svg>
