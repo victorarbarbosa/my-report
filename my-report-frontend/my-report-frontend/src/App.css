@@ -1,0 +1,43 @@
+main {
+    background-image: url('./assets/myreport-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.initial-container {
+    margin-top: 80px;
+}
+
+.content-row {
+    height: 700px;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.presentation-div {
+    height: 100%;
+    background-color: white;
+    border-radius: 16px;
+}
+
+.presentation-content {
+    padding: 0px 20px 0px 20px;
+    font-family: 'Arial';
+    text-align: justify;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.login-div {
+    height: 100%;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
