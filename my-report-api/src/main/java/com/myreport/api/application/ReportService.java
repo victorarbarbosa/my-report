@@ -2,9 +2,8 @@ package com.myreport.api.application;
 
 import com.myreport.api.api.dto.ReportDto;
 import com.myreport.api.domain.entities.Report;
-import com.myreport.api.infrastructure.repositories.ReportRepository;
+import com.myreport.api.infraestructure.repositories.ReportRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

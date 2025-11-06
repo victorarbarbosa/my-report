@@ -1,4 +1,4 @@
-package com.myreport.api.infrastructure.repositories;
+package com.myreport.api.infraestructure.repositories;
 
 import com.myreport.api.domain.entities.Report;
 import org.springframework.data.jpa.repository.JpaRepository;
