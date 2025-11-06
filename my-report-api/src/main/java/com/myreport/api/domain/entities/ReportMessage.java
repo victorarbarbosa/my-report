@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +19,7 @@ public class ReportMessage {
     private String message;
     private byte[] anexedImage;
     private UUID userId;
-    private Date createdDate;
+    private LocalDate createdDate;
     @ManyToOne
     private Report report;
 }
