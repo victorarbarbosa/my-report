@@ -1,6 +1,8 @@
 package com.myreport.api.application;
 
+import com.myreport.api.api.dto.UpdatePasswordDto;
 import com.myreport.api.api.dto.UserDto;
+import com.myreport.api.api.dto.UserUpdateDto;
 import com.myreport.api.domain.entities.User;
 import com.myreport.api.infraestructure.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +22,7 @@ public class UserService {
         return userRepository.findById(userId).orElseThrow();
     }
 
-    public void createNewUser(UserDto userDto, MultipartFile profileImage) throws Exception {
+    public UUID createUser(UserDto userDto, MultipartFile profileImage) throws Exception {
         var user = User.builder()
                 .id(UUID.randomUUID())
                 .name(userDto.getName())
@@ -40,5 +42,31 @@ public class UserService {
         }
 
         userRepository.save(user);
+
+        return user.getId();
+    }
+
+    public User updateUser(UUID userId, UserUpdateDto userDto, MultipartFile profileImage) throws IOException {
+        var user = getUserById(userId);
+        user.setName(userDto.getName());
+        user.setSecondName(userDto.getSecondName());
+        user.setEmail(userDto.getEmail());
+        user.setBirthDate(userDto.getBirthDate());
+        user.setProfileImage(profileImage.getBytes());
+        user.setPhoneNumber(userDto.getPhoneNumber());
+
+        userRepository.save(user);
+
+        return user;
+    }
+
+    public void updatePassword(UUID userId, UpdatePasswordDto passwordDto) {
+        var user = getUserById(userId);
+        user.setPassword(passwordDto.getPassword());
+        userRepository.save(user);
+    }
+
+    public void deleteUser(UUID userId) {
+        userRepository.deleteById(userId);
     }
 }

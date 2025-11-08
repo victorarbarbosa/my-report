@@ -1,5 +1,6 @@
 package com.myreport.api.api.dto;
 
+import com.myreport.api.domain.entities.User;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +16,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDto {
-    @Id
     private UUID id;
     private String name;
     private String secondName;
@@ -28,4 +28,22 @@ public class UserDto {
     private byte[] profileImage;
     private String phoneNumber;
     private boolean isCompany;
+
+    public UserDto(User user) {
+        this.id = user.getId();
+        this.name = user.getName();
+        this.email = user.getEmail();
+        this.phoneNumber = user.getPhoneNumber();
+        this.createdDate = user.getCreatedDate();
+        this.profileImage = user.getProfileImage();
+
+        if(isCompany) {
+            this.cnpj = user.getCnpj();
+        } else {
+            this.secondName = user.getSecondName();
+            this.cpf = user.getCpf();
+            this.rg = user.getRg();
+            this.birthDate = user.getBirthDate();
+        }
+    }
 }
