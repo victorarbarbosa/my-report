@@ -10,11 +10,11 @@ main {
 }
 
 .initial-container {
-    margin-top: 80px;
+    margin-top: 10vh;
 }
 
 .content-row {
-    height: 700px;
+    height: 80vh;
     border-radius: 16px;
     background-color: rgba(255, 255, 255, 0.8);
 }
@@ -37,7 +37,42 @@ main {
 }
 
 .login-div {
-    height: 100%;
     border-top-right-radius: 16px;
     border-bottom-right-radius: 16px;
+}
+
+.forget-password {
+    display: inline;
+}
+
+.signin-div {
+    padding: 15px 0px 15px 0px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #999;
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.ou {
+    transform: translateY(-2px);
+    padding: 0px 5px;
+    display: inline-block;
 }

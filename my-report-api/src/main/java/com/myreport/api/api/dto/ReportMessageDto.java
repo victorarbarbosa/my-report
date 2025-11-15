@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -17,7 +18,7 @@ public class ReportMessageDto {
     private byte[] anexedImage;
     private UUID userId;
     private UUID reportId;
-    private Date createdDate;
+    private LocalDate createdDate;
 
     public ReportMessageDto(ReportMessage reportMessage) {
         id = reportMessage.getId();
