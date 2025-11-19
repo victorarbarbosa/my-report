@@ -1,0 +1,24 @@
+.navbar {
+    background-color: #0d6efd;
+    color: white;
+    height: 10vh;
+}
+
+.navbar-brand {
+    width: 150px;
+    height: 50px;
+    padding: 0px;
+}
+
+.logo-nav {
+    width: 200px;
+    height: 50px;
+}
+
+.search {
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 500px;
+}

@@ -1,0 +1,19 @@
+<svg width="300" height="100" viewBox="0 0 220 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield -->
+  <path d="M30 5 L10 15 V30 C10 42 18 50 30 55 C42 50 50 42 50 30 V15 L30 5 Z"
+        stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Checkmark -->
+  <path d="M20 28 L28 36 L43 20"
+        stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Text: My -->
+  <text x="70" y="25" fill="white" font-size="24" font-family="Arial, sans-serif" font-weight="600">
+    My
+  </text>
+
+  <!-- Text: Report -->
+  <text x="70" y="50" fill="white" font-size="28" font-family="Arial, sans-serif" font-weight="700">
+    Report
+  </text>
+</svg>
