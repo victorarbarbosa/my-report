@@ -22,11 +22,6 @@ function App() {
                 com a reputação digital. Essa interação direta estimula a confiança e o diálogo entre consumidores e organizações, ajudando a restaurar a 
                 credibilidade de marcas legítimas e a identificar práticas suspeitas com mais rapidez e precisão.
               </p>
-              <p>
-                O projeto pretende se tornar uma referência nacional no combate a golpes e fraudes, promovendo a conscientização digital e 
-                incentivando a denúncia como ferramenta de prevenção. Mais do que um site de reclamações, o MyReport é uma rede de apoio e proteção 
-                para quem acredita em uma internet mais justa e segura.
-              </p>
             </div>
           </div>
 
@@ -36,7 +31,16 @@ function App() {
             <form className='px-5'>
               <input type="email" className="form-control" placeholder="Email" id="emailInput" aria-label="Email"/>
               <input type="password" className="form-control mt-3" placeholder="Senha" id="passwordInput" aria-label="Password"/>
-              <button type="submit" className="btn btn-success mt-3 d-block mx-auto">Login</button>
+              <div className='d-flex mt-3 justify-content-center gap-5 align-items-center form-options'>
+                <a className='forget-password'>Esqueci minha senha</a>
+                <button type="submit" className="btn btn-success">Login</button>
+              </div>
+              <div className='signin-div d-flex flex-column justify-content-center'>
+                <div className='divider'>
+                  <span className='ou'>OU</span>
+                </div>
+                <button className='btn btn-primary mt-2'>Cadastre-se</button>
+              </div>
             </form>
           </div>
         </div>
