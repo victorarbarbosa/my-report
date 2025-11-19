@@ -19,24 +19,24 @@ import java.util.UUID;
 @RequestMapping("api/user")
 public class UserController {
     @Autowired
-    private static UserService userService;
+    private UserService userService;
 
     @GetMapping("{id}")
     public ResponseEntity<UserDto> getUserById(@PathVariable UUID id) {
         return ResponseEntity.ok(new UserDto(userService.getUserById(id)));
     }
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> createUser(@RequestPart("user") UserDto userDto, @RequestPart("profileImage") MultipartFile profileImage) throws URISyntaxException {
-        try {
-            UUID createdUserId;
+    @GetMapping(value = "/{id}/profile-image", produces = MediaType.IMAGE_JPEG_VALUE)
+    public ResponseEntity<byte[]> getProfileImage(@PathVariable UUID id) {
+        byte[] imageBytes = userService.getUserProfileImage(id);
 
-            createdUserId = userService.createUser(userDto, profileImage);
-
-            return ResponseEntity.created(new URI("/api/user" + createdUserId)).build();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        if (imageBytes == null) {
+            return ResponseEntity.notFound().build();
         }
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(imageBytes);
     }
 
     @PutMapping(value = "{id}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
