@@ -2,9 +2,7 @@ package com.myreport.api.api.dto;
 
 import com.myreport.api.domain.entities.ReportMessage;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.Date;

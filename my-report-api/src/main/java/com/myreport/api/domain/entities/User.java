@@ -2,17 +2,29 @@ package com.myreport.api.domain.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "users")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class User {
+public class User implements UserDetails {
     @Id
     private UUID id;
     private String name;
@@ -20,11 +32,21 @@ public class User {
     private String email;
     private String password;
     private String cpf;
-    private String rg;
     private String cnpj;
     private LocalDate birthDate;
     private LocalDateTime createdDate;
+    @Lob
     private byte[] profileImage;
     private String phoneNumber;
     private boolean isCompany;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
+    }
+
+    @Override
+    public String getUsername() {
+        return this.email;
+    }
 }

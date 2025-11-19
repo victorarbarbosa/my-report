@@ -20,8 +20,8 @@ public class UserDto {
     private String name;
     private String secondName;
     private String email;
+    private String password;
     private String cpf;
-    private String rg;
     private String cnpj;
     private LocalDate birthDate;
     private LocalDateTime createdDate;
@@ -42,7 +42,6 @@ public class UserDto {
         } else {
             this.secondName = user.getSecondName();
             this.cpf = user.getCpf();
-            this.rg = user.getRg();
             this.birthDate = user.getBirthDate();
         }
     }

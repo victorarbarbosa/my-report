@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class SearchReportsRequest {
-    private String searchTerm;
+public class UserLoginDto {
+    private String email;
+    private String password;
 }
