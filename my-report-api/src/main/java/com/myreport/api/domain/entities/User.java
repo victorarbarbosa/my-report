@@ -2,6 +2,7 @@ package com.myreport.api.domain.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import java.util.UUID;
 
 @Entity
 @Data
+@Builder
 public class User {
     @Id
     private UUID id;
