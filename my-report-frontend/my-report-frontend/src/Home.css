@@ -1,0 +1,40 @@
+main {
+    width: 100%;
+    height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.following-overflow {
+    height: 90vh;
+    background-color: #F5F5F5;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.following-user {
+    width: 230px;
+    height: 50px;
+    background-color: white;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.create-report {
+    background-color: white;
+    width: 800px;
+    height: 60px;
+    margin-bottom: 40px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reports-overflow {
+    height: 90vh;
+    background-color: #F5F5F5;
+    padding: 30px 0px 0px 200px;
+}

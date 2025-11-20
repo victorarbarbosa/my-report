@@ -1,0 +1,54 @@
+.navbar {
+    background-color: #0d6efd;
+    color: white;
+    height: 10vh;
+}
+
+.navbar-brand {
+    width: 150px;
+    height: 50px;
+    padding: 0px;
+}
+
+.logo-nav {
+    width: 200px;
+    height: 50px;
+}
+
+.search {
+    margin: 0 auto;
+}
+
+.search-input {
+    width: 500px;
+}
+
+.ai-button {
+    margin-right: 50px;
+}
+
+.ai-icon {
+    margin-right: 5px;
+}
+
+.profile-icon {
+    background-color: lightgray;
+    border-radius: 20px;
+    padding-right: 10px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.perfil-span {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 5px;
+}
