@@ -1,7 +1,9 @@
 import './Header.css';
 import logoNav from './assets/myreport-logo-white.svg';
+import perfil from './assets/perfil3.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 export default function Header() {  
     return (
@@ -20,10 +22,14 @@ export default function Header() {
                     </form>
                 </div>
 
+                <div className='ai-button'>
+                    <button className='btn btn-info'><FontAwesomeIcon icon={faGoogle} size='lg' className='ai-icon'/>Gemini</button>
+                </div>
+
                 <div className="d-flex justify-content-start gap-4">
-                    <a>
-                        <img/>
-                        <span>Perfil</span>
+                    <a className='profile-icon'>
+                        <img src={perfil} className='profile-image'/>
+                        <span className='perfil-span'>Perfil</span>
                     </a>
                     <button className="btn btn-danger">Sair</button>
                 </div>

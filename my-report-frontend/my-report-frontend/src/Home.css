@@ -1,4 +1,24 @@
 main {
     width: 100%;
     height: 100vh;
+    background-color: #F5F5F5;
+}
+
+.following-overflow {
+    height: 90vh;
+    background-color: #F5F5F5;
+}
+
+.following-user {
+    width: 200px;
+    height: 35px;
+    background-color: white;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.reports-overflow {
+    height: 90vh;
+    background-color: #F5F5F5;
+    padding: 50px 0px 0px 200px;
 }
