@@ -4,8 +4,10 @@ import perfil from './assets/perfil3.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {  
+    const navigate = useNavigate();
     return (
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -27,7 +29,7 @@ export default function Header() {
                 </div>
 
                 <div className="d-flex justify-content-start gap-4">
-                    <a className='profile-icon'>
+                    <a className='profile-icon' onClick={() => navigate('/profile')} style={{ cursor: 'pointer' }}>
                         <img src={perfil} className='profile-image'/>
                         <span className='perfil-span'>Perfil</span>
                     </a>
