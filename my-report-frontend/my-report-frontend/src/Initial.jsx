@@ -50,7 +50,10 @@ function Initial() {
                 <div className='divider'>
                   <span className='ou'>ou</span>
                 </div>
-                <button className='btn btn-primary mt-2'>Cadastre-se</button>
+                <button className='btn btn-primary mt-2' onClick={(e) => {
+                    e.preventDefault();
+                    navigate("/signup");
+                  }}>Cadastre-se</button>
               </div>
             </form>
           </div>
