@@ -1,0 +1,39 @@
+ 
+    create table report (
+        id uuid not null,
+        company_id uuid,
+        created_date timestamp(6),
+        image varbinary(255),
+        is_resolved boolean not null,
+        report_message varchar(255),
+        title varchar(255),
+        upvote_number integer not null,
+        user_id uuid,
+        primary key (id)
+    )
+ 
+    create table report_message (
+        id uuid not null,
+        anexed_image varbinary(255),
+        created_date date,
+        message varchar(255),
+        user_id uuid,
+        report_id uuid,
+        primary key (id)
+    )
+ 
+    create table users (
+        id uuid not null,
+        birth_date date,
+        cnpj varchar(255),
+        cpf varchar(255),
+        created_date timestamp(6),
+        email varchar(255),
+        is_company boolean not null,
+        name varchar(255),
+        password varchar(255),
+        phone_number varchar(255),
+        profile_image blob,
+        second_name varchar(255),
+        primary key (id)
+    )

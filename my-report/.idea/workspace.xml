@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ff8878e-fc13-4c9a-ae12-e9288b7ae4cc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/MyReportApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/api/controllers/ReportController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/api/dto/ReportDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/api/dto/ReportMessageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/api/dto/SearchReportsRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/application/ReportService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/domain/entities/Report.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/domain/entities/ReportMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/infrastructure/repositories/ReportMessageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/myreport/api/infrastructure/repositories/ReportRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/myreport/api/MyReportApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,11 +28,14 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="33o8extSomGcsBqS7C4A40bMd7z" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -60,8 +46,11 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/report-endpoints",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feat/user-api",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Victor/Desktop/Estudos e Projetos/MyReportProject/my-report-api",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -75,16 +64,6 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.myreport.api.MyReportApplication" />
       <module name="my-report" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
-      <setting name="path" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workDir" value="file://$PROJECT_DIR$" />
-      <setting name="debug" value="false" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
