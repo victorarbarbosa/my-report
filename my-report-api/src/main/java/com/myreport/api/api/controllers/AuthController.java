@@ -29,12 +29,13 @@ public class AuthController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PostMapping(value = "/register", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<?> createUser(@RequestPart("user") UserDto userDto, @RequestPart("profileImage") MultipartFile profileImage) throws URISyntaxException {
+    @CrossOrigin(origins = "http://localhost:5173")
+    @PostMapping("/register")
+    public ResponseEntity<?> createUser(@RequestBody UserDto userDto) {
         try {
             UUID createdUserId;
 
-            createdUserId = userService.createUser(userDto, profileImage);
+            createdUserId = userService.createUser(userDto);
 
             return ResponseEntity.created(new URI("/api/user/" + createdUserId)).build();
         } catch (Exception e) {

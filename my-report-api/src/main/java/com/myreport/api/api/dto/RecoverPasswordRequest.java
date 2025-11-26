@@ -5,9 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class UpdatePasswordDto {
-    private String actualPassword;
-    private String newPassword;
+@NoArgsConstructor
+public class RecoverPasswordRequest {
+    private String email;
 }

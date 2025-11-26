@@ -36,6 +36,7 @@ public class UserDto {
         this.phoneNumber = user.getPhoneNumber();
         this.createdDate = user.getCreatedDate();
         this.profileImage = user.getProfileImage();
+        this.isCompany = user.isCompany();
 
         if(isCompany) {
             this.cnpj = user.getCnpj();

@@ -2,32 +2,42 @@ package com.myreport.api.api.controllers;
 
 import com.myreport.api.application.ReportMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 @RestController
 @RequestMapping("api/message")
 public class ReportMessageController {
     @Autowired
-    private static ReportMessageService messageService;
+    private ReportMessageService messageService;
 
-    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping
     public ResponseEntity<?> createNewMessage(@RequestParam UUID reportId, @RequestParam UUID senderId,
-                                              @RequestParam String message, @RequestParam MultipartFile image) {
-        try {
-            messageService.createNewMessage(reportId, senderId, message, image);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+                                              @RequestParam String message) {
+        messageService.createNewMessage(reportId, senderId, message);
         return ResponseEntity.ok().build();
+    }
+
+    @PutMapping("/{messageId}")
+    public ResponseEntity<?> updateMessage(
+            @PathVariable UUID messageId,
+            @RequestParam UUID senderId,
+            @RequestParam String newMessage
+    ) {
+        try {
+            messageService.updateMessage(messageId, senderId, newMessage);
+            return ResponseEntity.ok().build();
+        } catch (IllegalAccessException e) {
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Usuário não autorizado.");
+        } catch (NoSuchElementException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

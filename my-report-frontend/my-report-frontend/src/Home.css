@@ -1,18 +1,27 @@
+/* Reset e layout principal */
 main {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    padding: 0 !important;
 }
 
+.home-container {
+    flex: 1;
+}
+
+/* Seguidores */
 .following-overflow {
     height: 90vh;
     background-color: #F5F5F5;
-    padding-left: 20px;
-    padding-top: 10px;
+    padding: 10px;
+    overflow-y: auto;
 }
 
 .following-user {
-    width: 230px;
+    width: 100%;
     height: 50px;
     background-color: white;
     border-radius: 16px;
@@ -20,11 +29,37 @@ main {
     display: flex;
     align-items: center;
     padding-left: 10px;
+    transition: background-color 0.2s;
 }
 
+.following-user:hover {
+    background-color: #e6e6e6;
+}
+
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.profile-name {
+    font-size: 0.9rem;
+}
+
+/* Posts */
+.reports-overflow {
+    height: 90vh;
+    background-color: #F5F5F5;
+    padding: 20px;
+}
+
+/* Botão de criar relatório */
 .create-report {
     background-color: white;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     height: 60px;
     margin-bottom: 40px;
     border-radius: 16px;
@@ -33,8 +68,27 @@ main {
     align-items: center;
 }
 
-.reports-overflow {
-    height: 90vh;
-    background-color: #F5F5F5;
-    padding: 30px 0px 0px 200px;
+/* Responsividade */
+@media (max-width: 767.98px) {
+    /* Coluna de posts ocupa toda largura no mobile */
+    .reports-overflow {
+        padding: 10px 10px 10px 10px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    /* Tablet */
+    .reports-overflow {
+        padding: 15px 15px 15px 15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .following-overflow {
+        display: none !important;
+        height: 0 !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
 }

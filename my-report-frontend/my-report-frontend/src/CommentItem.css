@@ -1,0 +1,76 @@
+/* ============================================
+   Estrutura principal do item de comentário
+============================================ */
+.comment-card {
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* Cabeçalho: foto + nome + botão editar */
+.comment-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Foto + nome agrupados */
+.comment-header > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ============================================
+   Foto de perfil
+============================================ */
+.comment-profile-image {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    border-radius: 50%;
+    object-fit: cover !important;
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Texto do comentário
+============================================ */
+.comment-text {
+    margin-top: 8px;
+    white-space: normal;
+    word-break: break-word;
+}
+
+/* ============================================
+   Área de edição
+============================================ */
+.comment-card textarea {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* ============================================
+   Botões de ação
+============================================ */
+.comment-card button {
+    height: 32px;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+}
+
+/* ===== FIX DEFINITIVO: trava completamente o tamanho do avatar ===== */
+.comment-profile-image {
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    max-width: 45px !important;
+    min-height: 45px !important;
+    max-height: 45px !important;
+    
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}

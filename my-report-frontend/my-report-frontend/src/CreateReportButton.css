@@ -1,0 +1,68 @@
+/* BOTÃO PRINCIPAL */
+.create-report {
+    background-color: white;
+    width: 100%;
+    max-width: none;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0 15px;
+    margin: 0 auto 40px auto;
+}
+
+.create-report:hover {
+    background-color: #f0f0f0;
+}
+
+/* Texto dentro do botão */
+.create-report h3 {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.modal.show {
+    z-index: 2000 !important;
+}
+
+.modal-backdrop.show {
+    z-index: 1900 !important;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 767.98px) {
+
+    /* Ocupa 100% da largura corretamente */
+    .create-report {
+        height: 55px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+        padding: 0 10px;
+        justify-content: flex-start;     /* Ícone + texto alinhados à esquerda */
+        gap: 12px;                       /* Espaço entre ícone e texto */
+    }
+
+    .create-report h3 {
+        font-size: 1.1rem;
+    }
+
+    /* Ícone menor no mobile */
+    .create-report svg {
+        font-size: 1.4rem !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .create-report {
+        height: 60px;
+        padding: 0 20px;
+        justify-content: center;
+    }
+
+    .create-report h3 {
+        font-size: 1.25rem;
+    }
+}

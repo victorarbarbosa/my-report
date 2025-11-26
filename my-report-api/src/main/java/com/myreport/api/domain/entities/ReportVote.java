@@ -1,28 +1,34 @@
 package com.myreport.api.domain.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
-import java.time.LocalDate;
 import java.util.UUID;
 
 @Entity
+@Table(name = "report_vote",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"report_id", "user_id"}))
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReportMessage {
+@Builder
+public class ReportVote {
     @Id
     @JdbcTypeCode(SqlTypes.CHAR)
     @Column(columnDefinition = "CHAR(36)")
     private UUID id;
-    private String message;
-    private byte[] anexedImage;
-    @OneToOne
-    private User user;
-    private LocalDate createdDate;
+
     @ManyToOne
     private Report report;
+
+    @ManyToOne
+    private User user;
+
+    @Column(nullable = false)
+    private String voteType;
 }

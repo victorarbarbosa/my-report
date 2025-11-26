@@ -16,22 +16,17 @@
 }
 
 .search {
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;   /* permite ocupar espaço para centralizar */
 }
 
 .search-input {
     width: 500px;
 }
 
-.ai-button {
-    margin-right: 50px;
-}
-
-.ai-icon {
-    margin-right: 5px;
-}
-
-.profile-icon {
+.profile-button {
     background-color: lightgray;
     border-radius: 20px;
     padding-right: 10px;
@@ -51,4 +46,129 @@
     text-align: center;
     margin-left: 5px;
     margin-top: 5px;
+}
+
+/* ---------------------------------------------------------
+   DESKTOP: força layout 100% horizontal e organizado
+--------------------------------------------------------- */
+@media (min-width: 992px) {
+    .custom-collapse-right {
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 20px;
+        position: static !important;
+        height: auto !important;
+        width: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        transform: none !important;
+    }
+
+    /* Inputs e botões em linha */
+    .custom-collapse-right form {
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    /* Itens do menu alinhados à direita */
+    .custom-collapse-right .d-flex {
+        flex-direction: row !important;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .search {
+        flex: 1 1 auto;
+        display: flex;
+        justify-content: center;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .search form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE / TABLET (até 991px)
+--------------------------------------------------------- */
+@media (max-width: 991px) {
+    .custom-collapse-right {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 70%;
+        height: 100vh;
+        background-color: #fff;
+        padding: 1rem;
+        z-index: 1050;
+        overflow-y: auto;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease-in-out;
+        display: block; /* menu vertical */
+    }
+
+    .navbar-toggler {
+        z-index: 1060;
+    }
+
+    .custom-collapse-right .d-flex {
+        width: 100%;
+    }
+
+    /* --- Ajuste do formulário no mobile --- */
+    .custom-collapse-right form.d-flex {
+        flex-direction: row !important;     /* input + botão lado a lado */
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .search {
+        margin-top: 50px;
+        margin-bottom: 10px;
+    }
+
+    .search-input {
+        width: 100% !important;
+    }
+
+    /* --- Botão de perfil no collapse --- */
+    .profile-button {
+        width: 100%;
+        border-radius: 10px;
+        display: flex !important;
+        flex-direction: row !important;     /* imagem + texto lado a lado */
+        align-items: center !important;
+        justify-content: center;
+        padding: 6px 10px;                  /* altura reduzida */
+        height: 48px;
+        gap: 10px;
+    }
+
+    .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+    }
+
+    .perfil-span {
+        margin: 0 !important;
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    /* Evita que os botões fiquem quebrando layout */
+    .custom-collapse-right > .d-flex.flex-column {
+        gap: 15px;
+        width: 100%;
+    }
 }
