@@ -1,0 +1,124 @@
+/* Área principal */
+main {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F5F5F5;
+}
+
+/* CONTAINER DO REPORT */
+.report-container {
+    background-color: white;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 800px; /* limita no desktop */
+    margin: 0 auto;   /* centraliza */
+    padding-bottom: 20px;
+}
+
+/* COMMENTS SECTION */
+.comments-section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* FOLLOWING (sidebar esquerda) */
+.following-overflow {
+    height: 90vh;
+    background-color: #F5F5F5;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+/* Esconder sidebar no mobile */
+@media (max-width: 767px) {
+    .following-overflow {
+        display: none !important;
+        height: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+}
+
+/* Ajustar conteúdo no mobile */
+@media (max-width: 767px) {
+    .reports-overflow {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .report-container {
+        border-radius: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .comments-section {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+    .reports-overflow {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .report-container {
+        max-width: 700px;
+    }
+}
+
+/* desktop grande */
+@media (min-width: 1200px) {
+    .reports-overflow {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+/* ===== Ajustes do formulário de novo comentário ===== */
+.new-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* textarea ocupa 100% e tem altura confortável */
+.comment-input {
+    width: 100%;
+    min-height: 80px;       /* mais espaço para escrever */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+/* botão embaixo no mobile */
+.new-comment .btn {
+    align-self: flex-end;
+}
+
+/* ===== Em telas maiores: botão ao lado do textarea ===== */
+@media (min-width: 768px) {
+    .new-comment {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .comment-input {
+        flex: 1 1 auto;     /* ocupa todo o espaço possível */
+        min-height: 60px;   /* altura menor em desktop, ajustável */
+    }
+
+    .new-comment .btn {
+        flex: 0 0 auto;     /* não expande */
+        height: 42px;
+        align-self: center;
+    }
+}

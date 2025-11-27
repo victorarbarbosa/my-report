@@ -6,12 +6,17 @@ import com.myreport.api.api.dto.UserUpdateDto;
 import com.myreport.api.domain.entities.User;
 import com.myreport.api.infraestructure.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -32,15 +37,43 @@ public class UserService {
         return userRepository.findProfileImageById(userId);
     }
 
-    public UUID createUser(UserDto userDto, MultipartFile profileImage) throws Exception {
+    public Page<UserDto> searchCompanyByName(String name, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<User> result = userRepository
+                .findByNameContainingIgnoreCase(name, pageable);
+
+        return result.map(UserDto::new);
+    }
+
+    public List<UserDto> getDefaultCompanies() {
+        return userRepository.findTop10ByIsCompanyTrueOrderByNameAsc().stream().map(UserDto::new).toList();
+    }
+
+    public List<User> searchUsersByName(String query) {
+        if (query == null || query.isBlank()) {
+            return Collections.emptyList();
+        }
+        return userRepository.findByNameContainingIgnoreCaseOrSecondNameContainingIgnoreCase(query, query);
+    }
+
+    public void updateProfileImage(UUID userId, MultipartFile image) throws IOException {
+        var user = getUserById(userId);
+        user.setProfileImage(image.getBytes());
+
+        userRepository.save(user);
+    }
+
+    public UUID createUser(UserDto userDto) {
         var user = User.builder()
                 .id(UUID.randomUUID())
                 .name(userDto.getName())
                 .email(userDto.getEmail())
+                .cpf(userDto.getCpf())
+                .cnpj(userDto.getCnpj())
                 .password(passwordEncoder.encode(userDto.getPassword()))
                 .createdDate(LocalDateTime.now())
-                .profileImage(profileImage.getBytes())
                 .phoneNumber(userDto.getPhoneNumber())
+                .isCompany(userDto.isCompany())
                 .build();
 
         if(user.isCompany()) {
@@ -56,13 +89,12 @@ public class UserService {
         return user.getId();
     }
 
-    public User updateUser(UUID userId, UserUpdateDto userDto, MultipartFile profileImage) throws IOException {
+    public User updateUser(UUID userId, UserUpdateDto userDto) {
         var user = getUserById(userId);
         user.setName(userDto.getName());
         user.setSecondName(userDto.getSecondName());
         user.setEmail(userDto.getEmail());
         user.setBirthDate(userDto.getBirthDate());
-        user.setProfileImage(profileImage.getBytes());
         user.setPhoneNumber(userDto.getPhoneNumber());
 
         userRepository.save(user);
@@ -70,10 +102,16 @@ public class UserService {
         return user;
     }
 
-    public void updatePassword(UUID userId, UpdatePasswordDto passwordDto) {
+    public boolean updatePassword(UUID userId, UpdatePasswordDto passwordDto) {
         var user = getUserById(userId);
-        user.setPassword(passwordDto.getPassword());
+        if (!passwordEncoder.matches(passwordDto.getActualPassword(), user.getPassword())) {
+            return false;
+        }
+
+        user.setPassword(passwordEncoder.encode(passwordDto.getNewPassword()));
         userRepository.save(user);
+
+        return true;
     }
 
     public void deleteUser(UUID userId) {

@@ -1,9 +1,9 @@
 package com.myreport.api.domain.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.util.Date;
 import java.util.List;
@@ -14,17 +14,25 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "report")
 public class Report {
     @Id
+    @JdbcTypeCode(SqlTypes.CHAR)
+    @Column(columnDefinition = "CHAR(36)")
     private UUID id;
     private String title;
     private String reportMessage;
-    private boolean isResolved;
+    @Column(nullable = false)
+    @Builder.Default
+    private boolean isResolved = false;
     private int upvoteNumber;
+    @Lob
     private byte[] image;
-    private UUID companyId;
-    private UUID userId;
+    @ManyToOne
+    private User company;
+    @ManyToOne
+    private User user;
     private Date createdDate;
-    @OneToMany
+    @OneToMany(mappedBy = "report", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ReportMessage> messages;
 }

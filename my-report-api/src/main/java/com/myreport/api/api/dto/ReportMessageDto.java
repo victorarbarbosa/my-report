@@ -16,14 +16,17 @@ public class ReportMessageDto {
     private byte[] anexedImage;
     private UUID userId;
     private UUID reportId;
+    private String senderFullName;
     private LocalDate createdDate;
 
     public ReportMessageDto(ReportMessage reportMessage) {
         id = reportMessage.getId();
         message = reportMessage.getMessage();
         anexedImage = reportMessage.getAnexedImage();
-        userId = reportMessage.getUserId();
+        userId = reportMessage.getUser().getId();
         reportId = reportMessage.getReport().getId();
         createdDate = reportMessage.getCreatedDate();
+        senderFullName = reportMessage.getUser().getName() + " " +
+                (reportMessage.getUser().getSecondName() != null ? reportMessage.getUser().getSecondName() : "");
     }
 }
